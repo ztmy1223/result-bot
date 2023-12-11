@@ -125,11 +125,11 @@ async def submit(ctx, tier:str, c1:str, s1:int, c2:str, s2:int):
         url = f"https://gb.hlorenzi.com/table.png?data=1%20%231d6ade%0A{clist[0]}%20%5B{cc1}%5D%20{slist[0]}%0A2%20%234A82D0%0A{clist[1]}%20%5B{cc2}%5D%20{slist[1]}"
         response = requests.get(url)
         image = response.content
-        with open("test.png", "wb") as f:
+        with open("result.png", "wb") as f:
             f.write(image)
         await result_channel.send(
           content=f"{clist[0]} {slist[0]}\n{clist[1]} {slist[1]}",
-          file=discord.File("test.png"))
+          file=discord.File("result.png"))
         await b.delete()
         await ctx.channel.send(
           content=f"Successfully sent table to {result_channel.mention}")
